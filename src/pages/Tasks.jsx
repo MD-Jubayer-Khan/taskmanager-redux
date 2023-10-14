@@ -9,6 +9,10 @@ const Tasks = () => {
   let [isOpen, setIsOpen] = useState(false)
   const {tasks} = useSelector((state)=> state.taskSlice);
 
+  const pendingTask = tasks.filter((item)=> item.status == 'pending')
+  const runningTask = tasks.filter((item)=> item.status == 'running')
+  const doneTask = tasks.filter((item)=> item.status == 'done')
+
   return (
     <div className="h-screen grid grid-cols-12">
       <div className="col-span-9 px-10 pt-10">
@@ -37,35 +41,35 @@ const Tasks = () => {
         <div className="grid grid-cols-3 gap-5 mt-10">
           <div className="relative h-[800px] overflow-auto">
             <div className="flex sticky top-0 justify-between bg-[#D3DDF9] p-5 rounded-md mb-3">
-              <h1>Up Next</h1>
+              <h1>Pending</h1>
               <p className="bg-primary text-white w-6 h-6 grid place-content-center rounded-md">
-                0
+                {pendingTask.length}
               </p>
             </div>
             <div className="space-y-3">
-              {tasks.map((item) => (<TaskCard key={item.id} task={item}/>))}
+              {pendingTask.map((item) => (<TaskCard key={item.id} task={item}/>))}
             </div>
           </div>
           <div className="relative h-[800px] overflow-auto">
             <div className="flex sticky top-0 justify-between bg-[#D3DDF9] p-5 rounded-md mb-3">
               <h1>In Progress</h1>
               <p className="bg-primary text-white w-6 h-6 grid place-content-center rounded-md">
-                0
+                {runningTask.length}
               </p>
             </div>
             <div className="space-y-3">
-              {tasks.map((item) => (<TaskCard key={item.id} task={item}/>))}
+              {runningTask.map((item) => (<TaskCard key={item.id} task={item}/>))}
             </div>
           </div>
           <div className="relative h-[800px] overflow-auto">
             <div className="flex sticky top-0 justify-between bg-[#D3DDF9] p-5 rounded-md mb-3">
-              <h1>Up Next</h1>
+              <h1>Done</h1>
               <p className="bg-primary text-white w-6 h-6 grid place-content-center rounded-md">
-                0
+                {doneTask.length}
               </p>
             </div>
             <div className="space-y-3">
-               {tasks.map((item) => (<TaskCard key={item.id} task={item}/>))}
+               {doneTask.map((item) => (<TaskCard key={item.id} task={item}/>))}
             </div>
           </div>
         </div>
