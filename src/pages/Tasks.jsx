@@ -3,9 +3,11 @@ import MyTasks from '../components/tasks/MyTasks';
 import TaskCard from '../components/tasks/TaskCard';
 import { useState } from 'react';
 import AddTaskModal from '../components/tasks/AddTaskModal';
+import { useSelector } from 'react-redux';
 
 const Tasks = () => {
   let [isOpen, setIsOpen] = useState(false)
+  const {task} = useSelector((state)=> state.taskSlice);
 
   return (
     <div className="h-screen grid grid-cols-12">
@@ -41,7 +43,7 @@ const Tasks = () => {
               </p>
             </div>
             <div className="space-y-3">
-              <TaskCard />
+              {task.map((item) => (<TaskCard key={item.id}/>))}
             </div>
           </div>
           <div className="relative h-[800px] overflow-auto">
@@ -52,8 +54,7 @@ const Tasks = () => {
               </p>
             </div>
             <div className="space-y-3">
-              <TaskCard />
-              <TaskCard />
+              {task.map((item) => (<TaskCard key={item.id}/>))}
             </div>
           </div>
           <div className="relative h-[800px] overflow-auto">
@@ -64,7 +65,7 @@ const Tasks = () => {
               </p>
             </div>
             <div className="space-y-3">
-              <TaskCard />
+               {task.map((item) => (<TaskCard key={item.id}/>))}
             </div>
           </div>
         </div>
