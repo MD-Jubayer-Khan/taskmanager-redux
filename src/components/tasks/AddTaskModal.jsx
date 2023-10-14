@@ -9,7 +9,7 @@ const AddTaskModal = ({isOpen, setIsOpen}) => {
 
     const onSubmit = (data) =>{
         dispatch(addTask(data))
-        reset
+        reset();
         setIsOpen(false)
     }
     return (
