@@ -25,7 +25,7 @@ const TaskCard = ({task}) => {
         {task?.title}
       </h1>
       <p className="mb-3">{task?.description}</p>
-      <p className="text-sm">Assigned to - {task?.assignedTo}</p>
+      <p className="text-sm">Assigned to - {task?.assignTo}</p>
       <div className="flex justify-between mt-3">
         <p>{task?.date}</p>
         <div className="flex gap-3">

@@ -73,7 +73,7 @@ const AddTaskModal = ({isOpen, setIsOpen}) => {
                 </div>
 
                 <div className="flex gap-3 justify-end">
-                    <button onClick={()=> setIsOpen(false, reset())} className="btn bg-[#f35a5a] text-white">Cancel</button>
+                    <h1 onClick={()=> setIsOpen(false, reset())} className="btn bg-[#f35a5a] text-white">Cancel</h1>
                     <button type="submit" className="btn  bg-[#744eff] text-white">Submit</button>
                 </div>
             </form>
